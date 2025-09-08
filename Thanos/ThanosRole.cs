@@ -52,7 +52,7 @@ namespace ThanosMod.Thanos
         public static bool VisibilityReality => true;
         public ModdedTeam Team { get; } = ModdedTeam.Impostors;
         public StringNames RoleName { get; } = new Translator("Thanos").StringName;
-        public StringNames RoleBlur { get; } = new Translator("Collect all 6 infinite gems").StringName;
+        public StringNames RoleBlur { get; } = new Translator("Colote as 6 jóias do infinito").StringName;
         public StringNames RoleBlurMed => RoleBlur;
         public StringNames RoleBlurLong => RoleBlur;
         public Color RoleColor { get; } = Palette.Purple;
