@@ -2,7 +2,7 @@
 using FungleAPI.Components;
 using FungleAPI.Networking.RPCs;
 using FungleAPI.Role.Teams;
-using FungleAPI.Roles;
+using FungleAPI.Role;
 using FungleAPI.Utilities;
 using FungleAPI.Utilities.Assets;
 using Il2CppInterop.Runtime;
@@ -31,7 +31,7 @@ namespace ThanosMod
                 yield return HudManager.Instance.CoFadeFullScreen(Color.clear, Color.white, 5);
                 if (AmongUsClient.Instance.AmHost)
                 {
-                    GameManager.Instance.RpcEndGame(ModdedTeam.Impostors.WinReason, false);
+                    GameManager.Instance.RpcEndGame(GameOverReason.ImpostorsByKill, false);
                 }
             }
             GameManager.Instance.StartCoroutine(Snap().WrapToIl2Cpp());

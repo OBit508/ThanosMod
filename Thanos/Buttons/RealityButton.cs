@@ -1,6 +1,6 @@
 ﻿using AsmResolver.PE.DotNet.ReadyToRun;
 using FungleAPI.Networking;
-using FungleAPI.Roles;
+using FungleAPI.Role;
 using System;
 using System.Collections.Generic;
 using System.Linq;

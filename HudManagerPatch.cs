@@ -28,7 +28,7 @@ namespace ThanosMod
         [HarmonyPostfix]
         public static void UpdatePostfix()
         {
-            if (AmongUsClient.Instance.IsInGame)
+            if (AmongUsClient.Instance.IsInGame && ShipStatus.Instance)
             {
                 SoulGem.gameObject.SetActive(!MeetingHud.Instance && ShipStatusPatch.Gems[StoneType.Soul].CurrentOwner == PlayerControl.LocalPlayer);
             }

@@ -33,12 +33,14 @@
     <Compile Include="Thanos\Buttons\SnapButton.cs" />
     <Compile Include="Thanos\Buttons\SpaceButton.cs" />
     <Compile Include="Thanos\Buttons\TimeButton.cs" />
-    <Compile Include="Thanos\RPCs\CollectGemRpc.cs" />
+    <Compile Include="Thanos\RPCs\CollectStoneRpc.cs" />
     <Compile Include="Thanos\RPCs\MindRpc.cs" />
     <Compile Include="Thanos\RPCs\PowerRpc.cs" />
     <Compile Include="Thanos\RPCs\RealityRpc.cs" />
+    <Compile Include="Thanos\RPCs\RequestSpawnRpc.cs" />
     <Compile Include="Thanos\RPCs\SnapRpc.cs" />
     <Compile Include="Thanos\RPCs\SpaceRpc.cs" />
+    <Compile Include="Thanos\RPCs\SpawnStonesRpc.cs" />
     <Compile Include="Thanos\RPCs\TimeRpc.cs" />
     <Compile Include="Thanos\ThanosComponent.cs" />
     <Compile Include="Thanos\ThanosRole.cs" />

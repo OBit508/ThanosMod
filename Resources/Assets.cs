@@ -32,7 +32,7 @@ namespace ThanosMod.Resources
             arrowPrefab.gameObject.AddComponent<SpriteRenderer>().sprite = ResourceHelper.LoadSprite(ThanosModPlugin.Plugin, "ThanosMod.Resources.Sprites.arrow", 150);
             arrowPrefab.gameObject.layer = 5;
             ArrowPrefab = new Prefab<ArrowBehaviour>(arrowPrefab);
-            StoneBehaviour gemPrefab = new GameObject("Gem").AddComponent<StoneBehaviour>();
+            StoneBehaviour gemPrefab = new GameObject("Stone").AddComponent<StoneBehaviour>();
             gemPrefab.Rend = gemPrefab.gameObject.AddComponent<SpriteRenderer>();
             gemPrefab.AnimRend = new GameObject("AnimRem")
             {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ThanosMod.Thanos.RPCs
 {
-    internal class CollectGemRpc : CustomRpc<(StoneType type, PlayerControl player)>
+    internal class CollectStoneRpc : CustomRpc<(StoneType type, PlayerControl player)>
     {
         public override void Write(MessageWriter writer, (StoneType type, PlayerControl player) value)
         {

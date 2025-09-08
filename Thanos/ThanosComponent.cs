@@ -1,5 +1,5 @@
 ﻿using FungleAPI.Components;
-using FungleAPI.Roles;
+using FungleAPI.Role;
 using FungleAPI.Utilities;
 using System;
 using System.Collections.Generic;

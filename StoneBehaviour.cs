@@ -8,7 +8,8 @@ using FungleAPI.Attributes;
 using ThanosMod.Thanos;
 using FungleAPI.Networking;
 using ThanosMod.Thanos.RPCs;
-using FungleAPI.Roles;
+using FungleAPI.Role;
+using BepInEx.Unity.IL2CPP.Utils.Collections;
 
 namespace ThanosMod
 {
@@ -25,18 +26,37 @@ namespace ThanosMod
         public bool spawned => transform.position != Vector3.zero;
         public void Start()
         {
+            transform.position = Vector3.zero;
             Rend = GetComponent<SpriteRenderer>();
             AnimRend = transform.GetChild(0).GetComponent<SpriteRenderer>();
             transform.localScale = new Vector3(ThanosRole.StoneSize / 2, ThanosRole.StoneSize / 2, ThanosRole.StoneSize / 2);
             Rend.sprite = ThanosUtils.GetSpriteByType(Type);
-            CurrentPosition = ShipStatusPatch.ValidSpawns[new System.Random().Next(0, ShipStatusPatch.ValidSpawns.Count - 1)];
-            transform.position = CurrentPosition;
-            ShipStatusPatch.ValidSpawns.Remove(CurrentPosition);
-            if (Type == StoneType.Soul)
-            {
-                ShipStatusPatch.Arrow.target = CurrentPosition;
-            }
             AnimRend.enabled = false;
+            if (AmongUsClient.Instance.AmHost)
+            {
+                CurrentPosition = ShipStatusPatch.ValidSpawns[new System.Random().Next(0, ShipStatusPatch.ValidSpawns.Count - 1)];
+                transform.position = CurrentPosition;
+                ShipStatusPatch.ValidSpawns.Remove(CurrentPosition);
+                if (Type == StoneType.Soul)
+                {
+                    ShipStatusPatch.Arrow.target = CurrentPosition;
+                }
+            }
+            else
+            {
+                StartCoroutine(CoTrySpawnStones().WrapToIl2Cpp());
+            }
+        }
+        public System.Collections.IEnumerator CoTrySpawnStones()
+        {
+            while (!spawned)
+            {
+                if (ShipStatus.Instance && !AmongUsClient.Instance.AmHost)
+                {
+                    yield return new WaitForSeconds(1);
+                    CustomRpcManager.Instance<RequestSpawnRpc>().Send(null, PlayerControl.LocalPlayer.NetId);
+                }
+            }
         }
         public void Update()
         {
@@ -87,7 +107,7 @@ namespace ThanosMod
             PlayerControl player = other.GetComponent<PlayerControl>();
             if (spawned && player != null && (AmongUsClient.Instance.AmHost && AmongUsClient.Instance.NetworkMode != NetworkModes.FreePlay || AmongUsClient.Instance.AmHost && AmongUsClient.Instance.NetworkMode == NetworkModes.FreePlay && player.AmOwner) && (player.Data.Role.GetTeam() == FungleAPI.Role.Teams.ModdedTeam.Impostors || player.Data.Role.GetTeam() != FungleAPI.Role.Teams.ModdedTeam.Impostors && ThanosUtils.VisibleToEveryone(Type)) && (player.Data.Role.GetTeam() == FungleAPI.Role.Teams.ModdedTeam.Impostors || Type == StoneType.Soul))
             {
-                CustomRpcManager.Instance<CollectGemRpc>().Send((Type, player), PlayerControl.LocalPlayer.NetId);
+                CustomRpcManager.Instance<CollectStoneRpc>().Send((Type, player), PlayerControl.LocalPlayer.NetId);
             }
         }
     }
