@@ -30,7 +30,7 @@ namespace ThanosMod
         {
             if (AmongUsClient.Instance.IsInGame)
             {
-                SoulGem.gameObject.SetActive(!MeetingHud.Instance && ThanosComponent.OwnedGems.Contains(ShipStatusPatch.Gems[GemType.Soul]));
+                SoulGem.gameObject.SetActive(!MeetingHud.Instance && ShipStatusPatch.Gems[StoneType.Soul].CurrentOwner == PlayerControl.LocalPlayer);
             }
         }
     }

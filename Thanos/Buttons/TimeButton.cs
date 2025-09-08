@@ -12,7 +12,7 @@ namespace ThanosMod.Thanos.Buttons
 {
     internal class TimeButton : CustomAbilityButton
     {
-        public override bool CanClick => ThanosComponent.OwnedGems.Contains(ShipStatusPatch.Gems[GemType.Time]);
+        public override bool CanClick => ThanosComponent.OwnedGems.Contains(ShipStatusPatch.Gems[StoneType.Time]);
         public override bool CanUse => CanClick;
         public override bool Active => CanClick;
         public override float Cooldown => ThanosRole.TimeDuration;

@@ -95,29 +95,29 @@ namespace ThanosMod
             }
             Animation.Show(Resources.Assets.TimeAnim, player.transform);
         }
-        public static Sprite GetSpriteByType(GemType type)
+        public static Sprite GetSpriteByType(StoneType type)
         {
             Sprite sprite;
             switch (type)
             {
-                case GemType.Mind: sprite = Resources.Assets.MindSprite; break;
-                case GemType.Power: sprite = Resources.Assets.PowerSprite; break;
-                case GemType.Reality: sprite = Resources.Assets.RealitySprite; break;
-                case GemType.Soul: sprite = Resources.Assets.SoulSprite; break;
-                case GemType.Space: sprite = Resources.Assets.SpaceSprite; break;
+                case StoneType.Mind: sprite = Resources.Assets.MindSprite; break;
+                case StoneType.Power: sprite = Resources.Assets.PowerSprite; break;
+                case StoneType.Reality: sprite = Resources.Assets.RealitySprite; break;
+                case StoneType.Soul: sprite = Resources.Assets.SoulSprite; break;
+                case StoneType.Space: sprite = Resources.Assets.SpaceSprite; break;
                 default: sprite = Resources.Assets.TimeSprite; break;
             }
             return sprite;
         }
-        public static bool VisibleToEveryone(GemType Type)
+        public static bool VisibleToEveryone(StoneType Type)
         {
             switch (Type)
             {
-                case GemType.Mind: return ThanosRole.VisibilityMind;
-                case GemType.Power: return ThanosRole.VisibilityPower;
-                case GemType.Reality: return ThanosRole.VisibilityReality;
-                case GemType.Soul: return ThanosRole.VisibilitySoul;
-                case GemType.Space: return ThanosRole.VisibilitySpace;
+                case StoneType.Mind: return ThanosRole.VisibilityMind;
+                case StoneType.Power: return ThanosRole.VisibilityPower;
+                case StoneType.Reality: return ThanosRole.VisibilityReality;
+                case StoneType.Soul: return ThanosRole.VisibilitySoul;
+                case StoneType.Space: return ThanosRole.VisibilitySpace;
                 default: return ThanosRole.VisibilityTime;
             }
         }

@@ -13,7 +13,7 @@ namespace ThanosMod.Thanos
     internal class ThanosComponent : PlayerComponent
     {
         public static ThanosComponent Instance => PlayerControl.LocalPlayer.GetComponent<ThanosComponent>();
-        public static List<GemBehaviour> OwnedGems = new List<GemBehaviour>();
+        public static List<StoneBehaviour> OwnedGems = new List<StoneBehaviour>();
         public List<TimePoint> TimePoints = new List<TimePoint>();
         public bool IsInvisible;
         public bool isRewinding;

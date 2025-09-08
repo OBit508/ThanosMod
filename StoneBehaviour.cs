@@ -13,9 +13,9 @@ using FungleAPI.Roles;
 namespace ThanosMod
 {
     [RegisterTypeInIl2Cpp]
-    public class GemBehaviour : MonoBehaviour
+    public class StoneBehaviour : MonoBehaviour
     {
-        public GemType Type;
+        public StoneType Type;
         public Vector2 CurrentPosition;
         public PlayerControl CurrentOwner;
         public SpriteRenderer Rend;
@@ -32,7 +32,7 @@ namespace ThanosMod
             CurrentPosition = ShipStatusPatch.ValidSpawns[new System.Random().Next(0, ShipStatusPatch.ValidSpawns.Count - 1)];
             transform.position = CurrentPosition;
             ShipStatusPatch.ValidSpawns.Remove(CurrentPosition);
-            if (Type == GemType.Soul)
+            if (Type == StoneType.Soul)
             {
                 ShipStatusPatch.Arrow.target = CurrentPosition;
             }
@@ -55,7 +55,7 @@ namespace ThanosMod
                     AnimRend.sprite = Resources.Assets.PickupAnim[sprite];
 
                 }
-                if (Type == GemType.Soul)
+                if (Type == StoneType.Soul)
                 {
                     if (CurrentOwner != null && CurrentOwner.Data.Role.GetTeam() == FungleAPI.Role.Teams.ModdedTeam.Crewmates)
                     {
@@ -85,7 +85,7 @@ namespace ThanosMod
         public void OnTriggerEnter2D(Collider2D other)
         {
             PlayerControl player = other.GetComponent<PlayerControl>();
-            if (spawned && player != null && (AmongUsClient.Instance.AmHost && AmongUsClient.Instance.NetworkMode != NetworkModes.FreePlay || AmongUsClient.Instance.AmHost && AmongUsClient.Instance.NetworkMode == NetworkModes.FreePlay && player.AmOwner) && (player.Data.Role.GetTeam() == FungleAPI.Role.Teams.ModdedTeam.Impostors || player.Data.Role.GetTeam() != FungleAPI.Role.Teams.ModdedTeam.Impostors && ThanosUtils.VisibleToEveryone(Type)) && (player.Data.Role.GetTeam() == FungleAPI.Role.Teams.ModdedTeam.Impostors || Type == GemType.Soul))
+            if (spawned && player != null && (AmongUsClient.Instance.AmHost && AmongUsClient.Instance.NetworkMode != NetworkModes.FreePlay || AmongUsClient.Instance.AmHost && AmongUsClient.Instance.NetworkMode == NetworkModes.FreePlay && player.AmOwner) && (player.Data.Role.GetTeam() == FungleAPI.Role.Teams.ModdedTeam.Impostors || player.Data.Role.GetTeam() != FungleAPI.Role.Teams.ModdedTeam.Impostors && ThanosUtils.VisibleToEveryone(Type)) && (player.Data.Role.GetTeam() == FungleAPI.Role.Teams.ModdedTeam.Impostors || Type == StoneType.Soul))
             {
                 CustomRpcManager.Instance<CollectGemRpc>().Send((Type, player), PlayerControl.LocalPlayer.NetId);
             }

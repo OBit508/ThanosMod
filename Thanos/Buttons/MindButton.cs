@@ -12,7 +12,7 @@ namespace ThanosMod.Thanos.Buttons
 {
     internal class MindButton : CustomAbilityButton
     {
-        public override bool CanClick => ThanosComponent.OwnedGems.Contains(ShipStatusPatch.Gems[GemType.Mind]);
+        public override bool CanClick => ThanosComponent.OwnedGems.Contains(ShipStatusPatch.Gems[StoneType.Mind]);
         public override bool CanUse => CanClick;
         public override bool Active => CanClick;
         public override float Cooldown => ThanosRole.CooldownMindStone;

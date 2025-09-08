@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace ThanosMod.Thanos.RPCs
 {
-    internal class CollectGemRpc : CustomRpc<(GemType type, PlayerControl player)>
+    internal class CollectGemRpc : CustomRpc<(StoneType type, PlayerControl player)>
     {
-        public override void Write(MessageWriter writer, (GemType type, PlayerControl player) value)
+        public override void Write(MessageWriter writer, (StoneType type, PlayerControl player) value)
         {
             writer.Write((int)value.type);
             writer.WritePlayer(value.player);
@@ -19,7 +19,7 @@ namespace ThanosMod.Thanos.RPCs
         }
         public override void Handle(MessageReader reader)
         {
-            GemType type = (GemType)reader.ReadInt32();
+            StoneType type = (StoneType)reader.ReadInt32();
             PlayerControl player = reader.ReadPlayer();
             ShipStatusPatch.Gems[type].Collect(player);
         }

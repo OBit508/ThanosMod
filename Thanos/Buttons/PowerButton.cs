@@ -13,7 +13,7 @@ namespace ThanosMod.Thanos.Buttons
 {
     internal class PowerButton : CustomAbilityButton
     {
-        public override bool CanClick => ThanosComponent.OwnedGems.Contains(ShipStatusPatch.Gems[GemType.Power]);
+        public override bool CanClick => ThanosComponent.OwnedGems.Contains(ShipStatusPatch.Gems[StoneType.Power]);
         public override bool CanUse => CanClick;
         public override bool Active => CanClick;
         public override float Cooldown => ThanosRole.CooldownPowerStone;

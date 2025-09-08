@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ThanosMod
 {
-    public enum GemType
+    public enum StoneType
     {
         Mind,
         Power,

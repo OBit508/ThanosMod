@@ -32,7 +32,7 @@ namespace ThanosMod.Resources
             arrowPrefab.gameObject.AddComponent<SpriteRenderer>().sprite = ResourceHelper.LoadSprite(ThanosModPlugin.Plugin, "ThanosMod.Resources.Sprites.arrow", 150);
             arrowPrefab.gameObject.layer = 5;
             ArrowPrefab = new Prefab<ArrowBehaviour>(arrowPrefab);
-            GemBehaviour gemPrefab = new GameObject("Gem").AddComponent<GemBehaviour>();
+            StoneBehaviour gemPrefab = new GameObject("Gem").AddComponent<StoneBehaviour>();
             gemPrefab.Rend = gemPrefab.gameObject.AddComponent<SpriteRenderer>();
             gemPrefab.AnimRend = new GameObject("AnimRem")
             {
@@ -43,7 +43,7 @@ namespace ThanosMod.Resources
             }.AddComponent<SpriteRenderer>();
             gemPrefab.AnimRend.enabled = false;
             gemPrefab.gameObject.AddComponent<CircleCollider2D>().isTrigger = true;
-            GemPrefab = new Prefab<GemBehaviour>(gemPrefab);
+            GemPrefab = new Prefab<StoneBehaviour>(gemPrefab);
         }
         public static List<Sprite> MindAnim;
         public static List<Sprite> PickupAnim;
@@ -61,6 +61,6 @@ namespace ThanosMod.Resources
         public static Sprite TimeSprite;
         public static Sprite ScreenShot;
         public static Prefab<ArrowBehaviour> ArrowPrefab;
-        public static Prefab<GemBehaviour> GemPrefab;
+        public static Prefab<StoneBehaviour> GemPrefab;
     }
 }

@@ -13,7 +13,7 @@ namespace ThanosMod
     internal static class ShipStatusPatch
     {
         public static ArrowBehaviour Arrow = null;
-        public static Dictionary<GemType, GemBehaviour> Gems = new Dictionary<GemType, GemBehaviour>();
+        public static Dictionary<StoneType, StoneBehaviour> Gems = new Dictionary<StoneType, StoneBehaviour>();
         public static List<Vector2> ValidSpawns;
         public static void Postfix(ShipStatus __instance)
         {
@@ -21,8 +21,8 @@ namespace ThanosMod
             ThanosComponent.OwnedGems.Clear();
             for (int i = 0; i < 6; i++)
             {
-                GemBehaviour gem = Resources.Assets.GemPrefab.Instantiate(__instance.transform);
-                gem.Type = (GemType)i;
+                StoneBehaviour gem = Resources.Assets.GemPrefab.Instantiate(__instance.transform);
+                gem.Type = (StoneType)i;
                 Gems.Add(gem.Type, gem);
             }
             Arrow = Resources.Assets.ArrowPrefab.Instantiate(__instance.transform);

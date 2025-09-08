@@ -13,7 +13,7 @@ namespace ThanosMod.Thanos.Buttons
 {
     internal class RealityButton : CustomAbilityButton
     {
-        public override bool CanClick => ThanosComponent.OwnedGems.Contains(ShipStatusPatch.Gems[GemType.Reality]);
+        public override bool CanClick => ThanosComponent.OwnedGems.Contains(ShipStatusPatch.Gems[StoneType.Reality]);
         public override bool CanUse => CanClick;
         public override bool Active => CanClick;
         public override float Cooldown => ThanosRole.RealityDuration;

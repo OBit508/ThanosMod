@@ -17,8 +17,8 @@
     <Compile Include="Animation.cs" />
     <Compile Include="BepInEx\BepInAutoPluginAttribute.cs" />
     <Compile Include="BepInEx\Preloader\Core\Patching\PatcherAutoPluginAttribute.cs" />
-    <Compile Include="GemBehaviour.cs" />
-    <Compile Include="GemType.cs" />
+    <Compile Include="StoneBehaviour.cs" />
+    <Compile Include="StoneType.cs" />
     <Compile Include="HudManagerPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShipStatusPatch.cs" />
