@@ -39,7 +39,7 @@ namespace ThanosMod.Thanos
         public static float StoneSize => 1;
         [ModdedToggleOption("Jóia do Tempo visível para todos")]
         public static bool VisibilityTime => true;
-        [ModdedToggleOption("Jóia do Porder visível para todos")]
+        [ModdedToggleOption("Jóia do Poder visível para todos")]
         public static bool VisibilityPower => true;
         [ModdedToggleOption("Jóia da Mente visível para todos")]
         public static bool VisibilityMind => true;

@@ -25,7 +25,7 @@ namespace ThanosMod
         public Harmony Harmony { get; } = new Harmony(ModId);
         public override void Load()
         {
-            Plugin = ModPlugin.RegisterMod(this, delegate
+            Plugin = ModPlugin.RegisterMod(this, ModVersion, delegate
             {
                 Resources.Assets.LoadAssets();
             });
