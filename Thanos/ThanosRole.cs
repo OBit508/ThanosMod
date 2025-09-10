@@ -47,11 +47,11 @@ namespace ThanosMod.Thanos
         public static bool VisibilitySoul => true;
         [ModdedToggleOption("Jóia do Espaço visível para todos")]
         public static bool VisibilitySpace => true;
-        [ModdedToggleOption("Jóia da Reálidade visível para todos")]
+        [ModdedToggleOption("Jóia da Realidade visível para todos")]
         public static bool VisibilityReality => true;
         public ModdedTeam Team { get; } = ModdedTeam.Impostors;
         public StringNames RoleName { get; } = new Translator("Thanos").StringName;
-        public StringNames RoleBlur { get; } = new Translator("Colote as 6 jóias do infinito.").StringName;
+        public StringNames RoleBlur { get; } = new Translator("Colete as 6 jóias do infinito.").StringName;
         public StringNames RoleBlurMed { get; } = new Translator("Colete as 6 jóias do infinito para estalar os dedos e ganhar").StringName;
         public StringNames RoleBlurLong { get; } = new Translator("O Thanos deve coletar todas as 6 jóias do infinito para estalar os dedos e acabar com o jogo.").StringName;
         public Color RoleColor { get; } = Palette.Purple;
